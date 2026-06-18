@@ -30,6 +30,17 @@
 
 
 / {
+
+behaviors {
+        num_tap: num_tap_behavior {
+            compatible = "zmk,behavior-hold-tap";
+            label = "NUM_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";   // Prevents accidental numbers while typing fast
+            tapping-term-ms = <200>;     // How long to hold before the number fires
+            bindings = <&kp>, <&kp>;     // Accepts two standard keypresses
+        };
+    };
     behaviors {
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
