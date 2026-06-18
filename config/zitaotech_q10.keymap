@@ -33,7 +33,8 @@
             flavor = "tap-preferred";   // Prevents accidental numbers while typing fast
             tapping-term-ms = <200>;     // How long to hold before the number fires
             bindings = <&kp>, <&kp>;
-     // Accepts two standard keypresses
+
+            // Accepts two standard keypresses
         };
     };
 
@@ -60,7 +61,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <400>;
-            bindings = <&mt DLLR SEMI>, <&to SYM>;
+            bindings = <&mt DLLR SEMI>, <&to 1>;
         };
     };
 
@@ -69,7 +70,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <400>;
-            bindings = <&kp C_MUTE>, <&to MEDIA>;
+            bindings = <&kp C_MUTE>, <&to 0>;
         };
     };
 
@@ -120,7 +121,7 @@
 &num_tap HASH Q      &num_tap N1 W  &num_tap N2 E       &num_tap NUMBER_3 R  &num_tap LEFT_PARENTHESIS T  &num_tap RIGHT_PARENTHESIS Y    &num_tap UNDERSCORE U  &num_tap MINUS I       &num_tap PLUS O           &num_tap AT_SIGN P
 &num_tap ASTERISK A  &num_tap N4 S  &num_tap N5 D       &num_tap N6 F        &num_tap SLASH G             &num_tap COLON H                &num_tap SEMICOLON J   &num_tap APOSTROPHE K  &num_tap DOUBLE_QUOTES L  &kp BSPC
 &sk LSHFT            &num_tap N7 Z  &num_tap N8 X       &num_tap N9 C        &num_tap QUESTION V          &num_tap EXCLAMATION B          &num_tap COMMA N       &num_tap PERIOD M      &mt DLLR SEMI             &kp ENTER
-                                    &sk_kp LCTRL LCTRL                       &num_tap N0 LALT             &kp SPACE                       &to SYM                &to UPPER
+                                    &sk_kp LCTRL LCTRL                       &num_tap N0 LALT             &kp SPACE                       &to 1                  &to 2
             >;
         };
 
@@ -128,10 +129,10 @@
             bindings = <
 &kp C_VOL_UP  &kp C_VOL_DN
 &kp PSCRN     &kp C_AC_SEARCH  &mkp LCLK  &kp F5  &kp F12
-&kp HASH      &kp N1           &kp N2     &kp N3  &mt LBKT LPAR  &mt RBKT RPAR    &kp UNDER    &kp MINUS  &kp PLUS       &kp AT
-&kp STAR      &kp N4           &kp N5     &kp N6  &kp SLASH      &kp COLON        &kp SEMI     &kp APOS   &kp DQT        &kp DEL
-&kp LSHFT     &kp N7           &kp N8     &kp N9  &kp QMARK      &kp EXCL         &kp COMMA    &kp DOT    &tdc_to_MEDIA  &kp ENTER
-                               &kp LCTRL          &kp N0         &kp SPACE        &to DEFAULT  &to UPPER
+&kp HASH      &kp N1           &kp N2     &kp N3  &mt LBKT LPAR  &mt RBKT RPAR    &kp UNDER  &kp MINUS  &kp PLUS       &kp AT
+&kp STAR      &kp N4           &kp N5     &kp N6  &kp SLASH      &kp COLON        &kp SEMI   &kp APOS   &kp DQT        &kp DEL
+&kp LSHFT     &kp N7           &kp N8     &kp N9  &kp QMARK      &kp EXCL         &kp COMMA  &kp DOT    &tdc_to_MEDIA  &kp ENTER
+                               &kp LCTRL          &kp N0         &kp SPACE        &to 0      &to 2
             >;
         };
 
@@ -142,18 +143,18 @@
 &none         &kp UP          &none      &sys_reset       &ext_power EP_TOG  &none              &kp LT      &kp GT           &kp PIPE      &kp KP_EQUAL
 &kp LEFT      &kp DOWN        &kp RIGHT  &none            &kp BSLH           &kp AMPS           &kp LBRC    &kp RBRC         &kp CARET     &kp BSPC
 &kp LSHFT     &none           &none      &rgb_ug RGB_BRD  &bl BL_DEC         &rgb_ug RGB_TOG    &bl BL_INC  &rgb_ug RGB_BRI  &td_boot_out  &kp ENTER
-                              &kp LCTRL                   &kp LALT           &kp SPACE          &to SYM     &to DEFAULT
+                              &kp LCTRL                   &kp LALT           &kp SPACE          &to 1       &to 0
             >;
         };
 
-        media_layer {
+        layer_4 {
             bindings = <
-&none  &none
-&none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none        &none        &none        &none
-&none  &none  &none  &none  &none  &none    &none        &none        &none        &none
-&none  &none  &none  &none  &none  &none    &none        &none        &to DEFAULT  &none
-              &none         &none  &none    &to DEFAULT  &to DEFAULT
+&msc SCRL_DOWN       &msc SCRL_UP
+&kp CLCK             &kp LGUI       &mkp LCLK           &mt ESC K_BACK       &kp TAB
+&num_tap HASH Q      &num_tap N1 W  &num_tap N2 E       &num_tap NUMBER_3 R  &num_tap LEFT_PARENTHESIS T  &num_tap RIGHT_PARENTHESIS Y    &num_tap UNDERSCORE U  &num_tap MINUS I       &num_tap PLUS O           &num_tap AT_SIGN P
+&num_tap ASTERISK A  &num_tap N4 S  &num_tap N5 D       &num_tap N6 F        &num_tap SLASH G             &num_tap COLON H                &num_tap SEMICOLON J   &num_tap APOSTROPHE K  &num_tap DOUBLE_QUOTES L  &kp BSPC
+&sk LSHFT            &num_tap N7 Z  &num_tap N8 X       &num_tap N9 C        &num_tap QUESTION V          &num_tap EXCLAMATION B          &num_tap COMMA N       &num_tap PERIOD M      &mt DLLR SEMI             &kp ENTER
+                                    &sk_kp LCTRL LCTRL                       &num_tap N0 LALT             &kp SPACE                       &to 0                  &to 1
             >;
         };
     };
